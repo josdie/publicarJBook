@@ -1,0 +1,105 @@
+#######################################################################################
+# Configuración del Libro
+title: "La Trillona v2.0"
+
+author: José Fernando Díez Higuera
+email: josdieh@gmail.com
+copyright: "2024/25"
+# logo: images/logo-programacion-300x100.jpg
+
+parse:
+  myst_enable_extensions:
+    - deflist
+    - substitution
+    - colon_fence
+    - dollarmath
+    - linkify
+    - tasklist
+  myst_substitutions:
+      sub3: My _global_ value!
+      CodeBlocks: |-
+         :::{raw} html
+         <strong><em>Code::Blocks</em></strong>
+         :::      
+      parrafo: |
+         :::{raw} html
+         &sect;
+         :::      
+      mdash: |-
+         ```{raw} html
+         &mdash;
+         ```
+
+# Bibliography
+#bibtex_bibfiles:
+#  - referencias.bib
+
+sphinx:
+  configuration: ./conf.py
+  todo_include_todos: True
+  extra_extensions : 
+    - sphinxcontrib.bibtex
+    - sphinx_subfigure
+    - myst_parser
+    - sphinx.ext.todo
+    - sphinx.ext.ext.todo 
+    - sphinx.ext.autodoc
+    - sphinx.ext.napoleon  # Si usas docstrings estilo Google o NumPy       
+
+
+sphinx: 
+  config: 
+    html_theme_options:
+      use_download_button  : false
+      use_source_button    : false
+      use_download_button  : false
+      use_source_button    : false
+
+    exclude_patterns : 
+      - _build
+      - pruebas_python
+      - ./FuentesPDF
+      - FuentesPDF
+      - SALA_ESPERA
+#      - GuiasActividades
+#      - SpecProyecto/NivelBasico/v1.0.1/Elecciones_v1.0.1.md
+#      - Evaluacion
+#      - Anexos
+#      - Tools
+#      - Teoria
+
+    todo_include_todos: True
+
+    bibtex_reference_style: author_year  # author_year or label, super, \supercite
+    language: es
+    html_static_path : ['_static']
+    html_css_files : ['miCss.css']
+    # html_css_files : ["myCss.css", ("print.css", {"media": "print"})]
+    numfig : True
+    numfig_secnum_depth: 1
+    numfig_format : {
+      "figure": "Figura %s.",
+      "table": "Tabla %s.",
+      "code-block": "Listado %s.",
+      "subfigure": "Figura %s.",
+    }
+    
+
+# exclude_patterns: ["Teoria", "SpecProyecto/NivelBasico/v1.0.1"]
+# include_patterns: [SpecProyecto/NivelBasico/v1.0.0/*.md, ]
+
+# HTML-specific settings
+html:
+  use_multitoc_numbering    : false  
+  favicon                   : "images/favicon.png"  # A path to a favicon image
+  navbar_number_sections    : true  # Add a number to each section in your left navbar
+  google_analytics_id       : "UA-148221575-1"  # A GA id that can be used to track book views.
+  home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://inferentialthinking.org"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  use_edit_page_button      : false
+  use_issues_button         : false
+  html_show_sourcelink      : False
+  html_sourcelink           : false
+  html_copy_source          : False
+  use_download_button       : false
+
